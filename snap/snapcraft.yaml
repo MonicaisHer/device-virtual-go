@@ -26,6 +26,7 @@ apps:
     command: bin/device-virtual $CONFIG_PRO_ARG $CONF_ARG $REGISTRY_ARG
     command-chain:
       - bin/startup-env-var.sh
+      - bin/helper-go.sh
     environment:
       CONFIG_PRO_ARG: "--cp=consul.http://localhost:8500"
       CONF_ARG: "--confdir=$SNAP_DATA/config/device-virtual/res"
@@ -45,7 +46,7 @@ parts:
     override-build: |
       cd $SNAPCRAFT_PART_SRC
       make build
-      install -DT ./main $SNAPCRAFT_PART_INSTALL/snap/hooks/
+      install -DT ./helper-go $SNAPCRAFT_PART_INSTALL/snap/hooks/helper-go
 
   device-virtual:
     after: [metadata]
