@@ -1,14 +1,12 @@
 GO=go
-HOOKS=cmd/configure/configure cmd/install/install
+HOOKS=main
 GOFLAGS=-ldflags="-s -w"
 
 build: $(HOOKS)
 
-cmd/configure/configure:
-	$(GO) build $(GOFLAGS) -o $@ ./cmd/configure
-
-cmd/install/install:
-	$(GO) build $(GOFLAGS) -o $@ ./cmd/install
+main:
+	go env -w GO111MODULE=on
+	$(GO) build $(GOFLAGS) -o $@ ./mainhook
 
 tidy:
 	go mod tidy -compat=1.17
