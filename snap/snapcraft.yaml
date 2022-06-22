@@ -38,8 +38,8 @@ apps:
     plugs: [network, network-bind]
 
 parts:      
-  helper:
-    source: snap/local/helper
+  helper-go:
+    source: snap/local/helper-go
     plugin: make
     build-snaps: [go/1.17/stable]
     override-build: |
