@@ -45,7 +45,7 @@ parts:
     override-build: |
       cd $SNAPCRAFT_PART_SRC
       make build
-      install -DT ./helper $SNAPCRAFT_PART_INSTALL/snap/hooks/helper
+      install -DT ./helper-go $SNAPCRAFT_PART_INSTALL/bin/helper-go
 
   device-virtual:
     after: [metadata]
