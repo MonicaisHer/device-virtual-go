@@ -20,13 +20,13 @@ import (
 )
 
 func main() {
-	subCommand := os.Args[1]
-	switch subCommand {
+	hookType := os.Args[1]
+	switch hookType {
 	case "install":
 		install()
 	case "configure":
 		configure()
 	default:
-		panic("Unknown hook sub-command: " + subCommand)
+		panic("Unknown hook type: " + hookType)
 	}
 }
